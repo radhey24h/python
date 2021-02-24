@@ -1,0 +1,153 @@
+db.z.aggregate(
+[
+    {'$match': {'effectiveDateTime': {'$lte': '2021-01-28T19: 46: 33.256'
+            }
+        }
+    },
+    { $sort: { 'effectiveDateTime': 1
+        }
+    }
+ {'$group': {'_id': {'ruleId': '$ruleId'
+            },
+             'effectiveDateTime': {'$first': '$effectiveDateTime'
+            },
+             'cateGory': {'$first': '$cateGory'
+            },
+             'score': {'$first': '$score'
+            }
+        }
+    }
+]
+)
+
+db.rule_execution_result.aggregate(
+[
+    {'$match': {'$and': [
+                {'topLevelFilter.id': '600dce87f5b3121091f73c80'
+                },
+                {'executionDateTime': {'$lte': '2021-02-01T14: 43: 54.494338'
+                    }
+                },
+                {'effectiveDateTime': {'$lte': '2021-02-01T14: 43: 54.494338'
+                    }
+                },
+                {'summaryStatus': 2
+                },
+                {'ruleCategory': 'Concentration Limitations'
+                }
+            ]
+        }
+    },
+    {'ruleDescription': '01 (i)(a) Countries other than the  United States'
+    }
+]
+)
+
+db.rule_execution_result.aggregate(
+[
+    {'$match': {'$and': [
+                {'topLevelFilter.id': '600dce87f5b3121091f73c80'
+                },
+                {'executionDateTime': {'$lte': '2021-02-03T23: 00: 49.691779'
+                    }
+                },
+                {'effectiveDateTime': {'$lte': '2021-02-03T23: 00: 49.691930'
+                    }
+                },
+                {'ruleId' : '4086_ClearCreek_CMPTstGeneric7.clsTstGeneric_CL_35_01_2'
+                },
+                {'ruleCategory': 'Concentration Limitations'
+                }
+            ]
+        }
+    },
+    {'$sort': {'effectiveDateTime': -1
+        }
+    },
+    {'$group': {'_id': {'ruleId': '$ruleId'
+            },
+'breachSince,': {'$first': '$breachSince,'
+            },
+'cushion': {'$first': '$cushion'
+            },
+'denominator': {'$first': '$denominator'
+            },
+'effectiveDateTime': {'$first': '$effectiveDateTime'
+            },
+'executionDateTime': {'$first': '$executionDateTime'
+            },
+'filteredDatasets': {'$first': '$filteredDatasets'
+            },
+'limitValue': {'$first': '$limitValue'
+            },
+'numerator': {'$first': '$numerator'
+            },
+'operator': {'$first': '$operator'
+            },
+'outcome': {'$first': '$outcome'
+            },
+'portfolio': {'$first': '$portfolio'
+            },
+'requirement': {'$first': '$requirement'
+            },
+'ruleCategory': {'$first': '$ruleCategory'
+            },
+'ruleDescription': {'$first': '$ruleDescription'
+            },
+'ruleId': {'$first': '$ruleId'
+            },
+'ruleType': {'$first': '$ruleType'
+            },
+'summaryStatus': {'$first': '$summaryStatus'
+            },
+'summaryStatusLabel': {'$first': '$summaryStatusLabel'
+            },
+'testResult': {'$first': '$testResult'
+            },
+'topLevelFilter': {'$first': '$topLevelFilter'
+            }
+        }
+    }
+]
+)
+
+db.rule_execution_result.find(
+{'topLevelFilter.id': '60150809c99f5fddab5ccb5b', 'summaryStatus': 2, 'executionDateTime': {'$gt': '2021-01-30'
+    }, 'effectiveDateTime': {'$gt': '2020-10-30'
+    }, 'ruleCategory': 'Concentration Limitations', 'ruleDescription': '01 (i)(a) Countries other than the United States'
+})
+
+
+db.z.aggregate( [
+    {'$match': {'effectiveDateTime': {'$lte': '2021-01-28T19:46:33.256' }}
+    },
+    { $sort: { 'effectiveDateTime': -1 ,'executionDateTime': -1}},
+    {'$group': {'_id': {'ruleId': '$ruleId'
+            },              'effectiveDateTime': {'$first': '$effectiveDateTime'
+            }, 'executionDateTime': {'$first': '$executionDateTime'
+                },             'cateGory': {'$first': '$cateGory'
+            },              'score': {'$first': '$score'
+            }
+        }
+    }
+] )
+
+
+db.rule_execution_results.aggregate(
+[{'$match': {'$and': [{'topLevelFilter.id': {'$in': ['600dce87f5b3121091f73c80']}},
+                      {'executionDateTime': {'$lte': datetime.datetime(2021, 2, 5, 10, 56, 37, 850652)}},
+                      {'effectiveDateTime': {'$lte': datetime.datetime(2021, 2, 5, 10, 56, 37, 850652)}},
+                      {'summaryStatus': 2},
+                      {'ruleCategory': 'Concentration Limitations'}]}},
+ {'$sort': {'effectiveDateTime': -1, 'executionDateTime': -1}}])
+
+
+ 
+db.rule_execution_results.aggregate(
+[{'$match': {'$and': [{'topLevelFilter.id': {'$in': ['60150809c99f5fddab5ccb5b']}},
+                      {'executionDateTime': {'$lte': '2021-02-03T00:00:00.000'}},
+                      {'effectiveDateTime': {'$lte': '2021-02-04T19:52:42.601'}},
+                      {'summaryStatus': 2},
+                      {'ruleCategory': 'Concentration Limitations'}]}},
+ {'$sort': {'effectiveDateTime': -1, 'executionDateTime': -1}}])
+

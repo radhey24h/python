@@ -1,0 +1,17 @@
+{
+    "topLevelFilter": {
+        "displayName": "Clear Creek CLO, LTD. | 123 Dirty Creek Test Data Set | Initial (60150809c99f5fddab5ccb5b)",
+        "_id": "600dce87f5b3121091f73c80"
+    },
+    "ruleResultFilterCriteria": [
+        {
+            "category": "ruleCategory",
+            "value": "Concentration Limitations"
+        },
+        {
+            "category": "ruleDescription",
+            "value": "01 (i)(a) Countries other than the United States"
+        }
+    ],
+    "status": 2
+}
